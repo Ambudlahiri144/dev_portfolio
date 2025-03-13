@@ -37,8 +37,6 @@ const lugrasimo = Lugrasimo({
 const bodoni = Bodoni_Moda({
   subsets: ['latin'],
   weight: ['400', '500', '600', '700'],
-  // Remove style override; it defaults to 'normal'
-  // style: ['normal'], 
   variable: "--bodoni",
   display: 'swap',
   adjustFontFallback: false,
@@ -46,8 +44,12 @@ const bodoni = Bodoni_Moda({
 
 
 export const metadata = {
-  title: 'My Portfolio',
+  icons: {
+    icon: '/images/logo.png',
+  },
+  title: 'Ambud Lahiri',
   description: 'A portfolio showcasing my work',
+  
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
