@@ -81,17 +81,17 @@ const AboutPage: FC = () => {
           {/* Left Column: Text (60%) */}
           <div className="w-3/5 p-8 flex flex-col justify-center">
             <div className="mx-auto">
-              <h1 className="font-bodoni font-bold text-[135px] md:text-[135px] animate-pop-out-delayed tracking-[0.2em] mt-20 text-center">
+              <h1 className="font-bodoni font-bold text-[150px] md:text-[150px] animate-pop-out-delayed tracking-[0.2em] mt-20 text-center">
                 ABOUT
               </h1>
               <p className="font-bodoni font-semibold text-[30px] md:text-[35px] text-[#2c2725] mb-0 leading-tight tracking-[0.05em] text-center">
-                I'm Ambud. ML Engineer.
+                I&apos;m Ambud. ML Engineer.
               </p>
               <p className="font-bodoni font-semibold text-[30px] text-[#2c2725] mb-5 leading-relaxed tracking-[0.05em] text-center">
                 Web Developer. App Developer.
               </p>
               <p className="font-montserrat font-light text-[15px] md:text-[15px] text-[#f5ebe1]-50 mb-6 tracking-wide">
-                Currently I'm pursuing B.Tech in Computer Science and Engineering at Bennett University.
+                Currently I&apos;m pursuing B.Tech in Computer Science and Engineering at Bennett University.
                 I specialize in Artificial Intelligence and Machine Learning. Along with this I have learnt
                 Web Development and App Development using frameworks like React.js, Next.js, and Flutter respectively.
                 I love exploring new opportunities and challenges and also contributing to Open Source Projects.

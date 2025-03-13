@@ -16,6 +16,7 @@ const config: Config = {
         bodoni: ["var(--bodoni)"],
         inter: ['"Inter"', 'sans-serif'],
         playfair: ['"Playfair Display"', 'serif'],
+        times: ['"Times New Roman"', 'serif'],
       },
       colors: {
         'custom-beige': '#f5ebe1',
