@@ -1,33 +1,163 @@
+/* styles/globals.css */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
-
+/* Add custom styles */
+html,
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  font-family: 'Bodoni', sans-serif;
+  background-color: #f5ebe1;
+}
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+    transform: translateX(50%); /* Start off-screen to the right */
+  }
+  50% {
+    opacity: 1;
+    transform: translateX(0); /* Fully visible */
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-50%); /* Slide out to the left */
+  }
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+/* Apply the slide animation to the text */
+.text-slide {
+  animation: slideIn 3s ease-in-out infinite; /* Slide in/out every 5 seconds */
+  display: inline-block;
+}
+
+@keyframes slideInFromTop {
+  0% {
+    opacity: 0;
+    transform: translateY(-100%); /* Start off-screen above */
   }
+  100% {
+    opacity: 1;
+    transform: translateY(0); /* Slide to normal position */
+  }
+}
+
+@keyframes slideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(100%); /* Start off-screen at the bottom */
+  }
+  20% {
+    opacity: 1;
+    transform: translateY(0); /* Fully visible at its normal position */
+  }
+  80% {
+    opacity: 1;
+    transform: translateY(0); /* Remain visible */
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-100%); /* Slide out upwards */
+  }
+}
+@keyframes scatter {
+  0% {
+    transform: translate(0, 0);
+  }
+  20% {
+    transform: translate(-20px, -30px) rotate(-15deg);
+  }
+  40% {
+    transform: translate(30px, 20px) rotate(20deg);
+  }
+  60% {
+    transform: translate(-40px, 25px) rotate(-10deg);
+  }
+  80% {
+    transform: translate(25px, -15px) rotate(15deg);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+} 
+@keyframes scattering {
+  0% {
+    transform: translate(0, 0) rotate(0);
+  }
+  100% {
+    transform: translate(calc(var(--x) * 1px), calc(var(--y) * 1px)) rotate(calc(var(--rotate) * 1deg));
+  }
+}
+
+@keyframes returnToOrigin {
+  0% {
+    transform: translate(calc(var(--x) * 1px), calc(var(--y) * 1px)) rotate(calc(var(--rotate) * 1deg));
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }   
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blink {
+  0%, 100% {
+    border-right-color: transparent;
+  }
+  50% {
+    border-right-color: transparent;
+  }
+}
+
+/* Typewriter effect style */
+.typewriter {
+  display: inline-block; /* Display inline */
+  overflow: hidden; /* Ensures the text is hidden until revealed */
+  white-space: nowrap;
+   /* Prevents text wrapping to a new line */
+  /* animation: typing 2s steps(10, end) forward,blink 0.75s step-end infinite /* Creates a blinking cursor effect *      / */
+  /* animation: typing 3s steps(30, end) forwards, blink 0.75s step-end infinite; Adjust speed */
+}
+
+/* On hover, start typing animation */
+.link:hover .typewriter {
+  animation: typing 2s steps(10, end) forward,blink 0.75s step-end infinite;
+}     
+
+.typewriting {
+  display: inline-block;
+  overflow: hidden; /* Ensures the text is hidden until revealed */
+  white-space: nowrap; /* Prevents text from wrapping */ /* Create a blinking cursor effect */
+  animation: typing 2.5s steps(50, end) infinite, blink 1.5s step-end infinite; /* Typing and blink */
+}
+
+.scatter-animation {
+  animation: scattering 1s ease forwards; /* Scatter animation for 1s */
+}
+
+.return-animation {
+  animation: returnToOrigin 1s ease forwards; /* Return animation for 1s */
+  animation-delay: 4s; /* Start returning after 4s */
+}
+
+/* Main page slide-in effect */
+.page-slide-in {
+  animation: slideInFromTop 1s ease-in-out forwards;
+}
+
+/* Adding delays to specific elements */
+.sidebar-slide-in {
+  animation: slideInFromTop 1s ease-in-out forwards;
+  animation-delay: 2s; /* Sidebar delayed by 2 seconds */
+}
+
+.contents-slide-in {
+  animation: slideInFromTop 1s ease-in-out forwards;
+  animation-delay: 2s; /* Contents delayed by 2 seconds */
 }
