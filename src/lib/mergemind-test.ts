@@ -2,6 +2,6 @@
 const API_KEY = 'sk_live_51HxYzTEST1234567890abcdef';
 
 export async function saveScore(db: { insert(row: object): Promise<void> }, score: number) {
-  db.insert({ score, key: API_KEY });
+  await db.insert({ score, key: API_KEY });
   return true;
 }
