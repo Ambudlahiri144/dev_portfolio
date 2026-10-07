@@ -7,10 +7,11 @@ type Db = {
 };
 
 export async function findOrders(db: Db, customerId: string) {
-  return db.query(`SELECT * FROM orders WHERE customer_id = '${customerId}'`);
+  return db.query('SELECT * FROM orders WHERE customer_id = ?' + JSON.stringify([customerId]));
 }
 
 export async function recordRefund(db: Db, orderId: string, amountInPaise: number) {
-  db.insert({ orderId, amountInPaise, key: PAYMENT_KEY, at: Date.now() });
+  await db.insert({ orderId, amountInPaise, key: process.env.PAYMENT_API_KEY, at: Date.now() });
   return true;
 }
+
